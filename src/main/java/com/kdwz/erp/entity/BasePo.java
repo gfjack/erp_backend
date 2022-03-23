@@ -36,7 +36,7 @@ public class BasePo implements Serializable {
     @PrePersist
     protected void onPrePersist() {
         if (null == createBy) {
-            this.createBy = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
+            this.createBy = SecurityContextHolder.getContext().getAuthentication().getName();
         }
         if (null == createDate) {
             this.createDate = new Date();
@@ -48,7 +48,7 @@ public class BasePo implements Serializable {
 
     @PreUpdate
     protected void onPreUpdate() {
-        this.updateBy = "ADMIN";
+        this.updateBy = SecurityContextHolder.getContext().getAuthentication().getName();
         this.updateDate = new Date();
     }
 

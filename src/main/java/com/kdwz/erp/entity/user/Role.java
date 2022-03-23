@@ -15,9 +15,8 @@ import java.io.Serializable;
 @ApiModel("用户角色表")
 @Entity
 @Table(name = "t_role")
-@EqualsAndHashCode(callSuper = true)
 @Data
-public class Role extends BasePo implements Serializable {
+public class Role implements Serializable {
 
     @ApiModelProperty("用户角色")
     @Id
