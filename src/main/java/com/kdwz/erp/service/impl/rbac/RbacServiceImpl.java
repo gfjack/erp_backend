@@ -1,6 +1,7 @@
-package com.kdwz.erp.service.impl;
+package com.kdwz.erp.service.impl.rbac;
 
 import com.kdwz.erp.entity.user.UserRegisterVo;
+import com.kdwz.erp.entity.user.UserVo;
 import com.kdwz.erp.exception.LoginException;
 import com.kdwz.erp.entity.common.RbacRequest;
 import com.kdwz.erp.entity.common.RbacResponse;
@@ -16,7 +17,10 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-import static com.kdwz.erp.converter.user.UserConverter.toUser;
+import java.util.List;
+
+import static com.kdwz.erp.constant.Constant.USERNAME_PASSWORD_ERROR;
+import static com.kdwz.erp.converter.user.UserConverter.*;
 
 @Service
 public class RbacServiceImpl implements RbacService {
@@ -47,7 +51,7 @@ public class RbacServiceImpl implements RbacService {
         final UserDetails userDetails = userDetailsServiceImpl.loadUserByUsername(username);
         String token = jwtUtils.generateToken(userDetails);
         User user = userRepository.findByUserName(username);
-        return new RbacResponse(user, token);
+        return new RbacResponse(toUserVo(user), token);
     }
 
     @Override
@@ -57,12 +61,18 @@ public class RbacServiceImpl implements RbacService {
         userRepository.save(user);
     }
 
+    @Override
+    public List<UserVo> search(String userName) {
+        List<User> res = userRepository.fuzzyByUserName(userName);
+        return toUserVos(res);
+    }
+
 
     private void authenticate(String username, String password) {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         } catch (Exception e) {
-            throw new LoginException("用户名或密码错误");
+            throw new LoginException(USERNAME_PASSWORD_ERROR);
         }
     }
 

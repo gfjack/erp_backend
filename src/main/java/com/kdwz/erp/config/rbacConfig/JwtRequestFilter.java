@@ -1,12 +1,11 @@
 package com.kdwz.erp.config.rbacConfig;
 
-import com.kdwz.erp.service.impl.UserDetailsServiceImpl;
+import com.kdwz.erp.service.impl.rbac.UserDetailsServiceImpl;
 import com.kdwz.erp.util.JwtUtils;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -18,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.kdwz.erp.constant.Constant.TOKEN_START;
+import static com.kdwz.erp.constant.Constant.*;
 
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
@@ -33,7 +32,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws IOException, ServletException {
 
         // 获取token
-        final String header = request.getHeader("Authorization");
+        final String header = request.getHeader(AUTHORIZATION);
         String jwtToken = null;
         String username = null;
         if (null != header && header.startsWith(TOKEN_START)) {
@@ -41,9 +40,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             try {
                 username = jwtUtils.extractUsername(jwtToken);
             } catch (IllegalArgumentException e) {
-                throw new IllegalArgumentException("TOKEN错误");
+                throw new IllegalArgumentException(INVALID_TOKEN);
             } catch (ExpiredJwtException e) {
-                throw new RuntimeException("登陆时间过期, 请重新登陆");
+                throw new RuntimeException(EXPIRED_TOKEN);
             }
         }
 

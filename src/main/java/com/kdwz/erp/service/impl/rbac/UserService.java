@@ -1,4 +1,4 @@
-package com.kdwz.erp.service.impl;
+package com.kdwz.erp.service.impl.rbac;
 
 
 import com.kdwz.erp.entity.user.Role;

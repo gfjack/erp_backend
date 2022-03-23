@@ -56,7 +56,7 @@ public interface CustomerApi {
     BatchResults delete(@ApiParam("多个客户id") @RequestParam("customer_ids") List<Long> customerIds);
 
     @ApiOperation("导出客户")
-    @RequestMapping(value = "/customers/batch/export", method = RequestMethod.GET)
+    @RequestMapping(value = "/customers/actions/export", method = RequestMethod.GET)
     void export(@ApiParam("是否全部导出") @RequestParam("is_all") Boolean isAll,
                 @ApiParam("需要导出客户id列表") @RequestParam("customer_ids") List<Long> customerIds,
                 HttpServletResponse response);
