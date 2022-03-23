@@ -3,11 +3,11 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:mysql://localhost:3306/erp?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF8
+    url: jdbc:mysql://localhost:3306/erp?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF8&serverTimezone=GMT%2B8
     #url: jdbc:mysql://121.36.142.253:3306/kdwz?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=UTF8
     username: root
     password: Gfj123456
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
