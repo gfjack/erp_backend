@@ -6,10 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @EqualsAndHashCode(callSuper = true)
@@ -22,6 +19,7 @@ public class SupplierPo extends BasePo implements Serializable {
     @ApiModelProperty("供应商id")
     @Id
     @Column(name = "supplier_id")
+    @GeneratedValue
     private Long supplierId;
 
     @ApiModelProperty("供应商名称")

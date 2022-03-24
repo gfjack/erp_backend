@@ -1,26 +1,25 @@
-package com.kdwz.erp.entity.customer;
+package com.kdwz.erp.entity.supplier;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
-import java.util.List;
 
-@ApiModel("客户实体")
+@ApiModel("创建供应商实体")
 @Data
-public class CustomerVo {
+public class SupplierCreateVo {
 
-    @ApiModelProperty(value = "客户id")
-    private Long customerId;
+    @ApiModelProperty("供应商名称")
+    @NotBlank(message = "请输入供应商名称")
+    private String supplierName;
 
-    @ApiModelProperty(value = "客户名称")
-    private String customerName;
-
-    @ApiModelProperty(value = "联系人姓名")
+    @ApiModelProperty("联系人姓名")
+    @NotBlank(message = "请输入联系人名称")
     private String contactName;
 
-    @ApiModelProperty(value = "联系人电话")
+    @ApiModelProperty("联系人电话")
+    @NotBlank(message = "请输入联系人电话")
     private String contactNum;
 
     @ApiModelProperty("银行名称")
@@ -43,8 +42,5 @@ public class CustomerVo {
 
     @ApiModelProperty("联系邮箱")
     private String email;
-
-    @ApiModelProperty("归属")
-    private List<String> belongs;
 
 }

@@ -14,4 +14,7 @@ public class CustomerSearchVo {
     @ApiModelProperty("客户联系人")
     private String contactName;
 
+    @ApiModelProperty("归属人")
+    private String belongs;
+
 }

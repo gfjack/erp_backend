@@ -35,7 +35,7 @@ public class RbacController implements RbacApi {
     @Override
     @ApiOperation("新增用户, 仅管理员可用")
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public void register(@ApiParam("用户实体") @RequestBody UserRegisterVo userRegisterVo) {
+    public void register(@ApiParam("用户实体") @Valid @RequestBody UserRegisterVo userRegisterVo) {
         rbacService.register(userRegisterVo);
     }
 

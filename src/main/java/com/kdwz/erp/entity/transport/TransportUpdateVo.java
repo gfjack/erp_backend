@@ -1,27 +1,12 @@
-package com.kdwz.erp.entity.customer;
+package com.kdwz.erp.entity.transport;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
-import java.util.List;
-
-@ApiModel("客户实体")
+@ApiModel("运输更新实体")
 @Data
-public class CustomerVo {
-
-    @ApiModelProperty(value = "客户id")
-    private Long customerId;
-
-    @ApiModelProperty(value = "客户名称")
-    private String customerName;
-
-    @ApiModelProperty(value = "联系人姓名")
-    private String contactName;
-
-    @ApiModelProperty(value = "联系人电话")
-    private String contactNum;
+public class TransportUpdateVo {
 
     @ApiModelProperty("银行名称")
     private String bankName;
@@ -43,8 +28,5 @@ public class CustomerVo {
 
     @ApiModelProperty("联系邮箱")
     private String email;
-
-    @ApiModelProperty("归属")
-    private List<String> belongs;
 
 }

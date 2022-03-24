@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Api("用户登陆接口")
@@ -18,11 +19,11 @@ public interface RbacApi {
 
     @ApiOperation("登陆验证")
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    RbacResponse authenticate(@ApiParam("用户登录实体") @RequestBody RbacRequest rbacRequest);
+    RbacResponse authenticate(@ApiParam("用户登录实体") @Valid @RequestBody RbacRequest rbacRequest);
 
     @ApiOperation("新增用户, 仅管理员可用")
     @RequestMapping(value = "/users/register", method = RequestMethod.POST)
-    void register(@ApiParam("用户实体") @RequestBody UserRegisterVo userRegisterVo);
+    void register(@ApiParam("用户实体") @Valid @RequestBody UserRegisterVo userRegisterVo);
 
     @ApiOperation("删除一个用户")
     @RequestMapping(value = "/users/delete/{user_name}", method = RequestMethod.DELETE)

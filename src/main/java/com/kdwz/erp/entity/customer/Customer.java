@@ -9,10 +9,7 @@ import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -27,6 +24,7 @@ public class Customer extends BasePo implements Serializable {
     @ApiModelProperty("客户id")
     @Id
     @Column(name = "customer_id")
+    @GeneratedValue
     private Long customerId;
 
     @ApiModelProperty("客户名称")
