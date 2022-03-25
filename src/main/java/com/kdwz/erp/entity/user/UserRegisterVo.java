@@ -24,7 +24,6 @@ public class UserRegisterVo {
     private String password;
 
     @ApiModelProperty(value = "权限", required = true)
-    @NotBlank(message = "用户权限不能为空")
     private List<Role> roles;
 
 }

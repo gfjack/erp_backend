@@ -15,6 +15,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Api("用户登陆接口")
+@RequestMapping("/v2")
 public interface RbacApi {
 
     @ApiOperation("登陆验证")

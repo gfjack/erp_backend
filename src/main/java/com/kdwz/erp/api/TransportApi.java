@@ -24,7 +24,7 @@ public interface TransportApi {
 
     @ApiOperation("根据条件搜索物流商")
     @RequestMapping(value = "/transports/actions/search", method = RequestMethod.POST)
-    TransportVo search(@ApiParam("查询物流商实体") @RequestBody TransportSearchVo transportSearchVo);
+    Page.PageResult<TransportVo> search(@ApiParam("查询物流商实体") @RequestBody TransportSearchVo transportSearchVo);
 
     @ApiOperation("根据id查询某一物流商")
     @RequestMapping(value = "/transports/{transport_id}", method = RequestMethod.GET)

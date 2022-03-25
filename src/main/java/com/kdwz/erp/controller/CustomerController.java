@@ -31,7 +31,7 @@ public class CustomerController implements CustomerApi {
     @Override
     @ApiOperation("根据条件查询某一个客户")
     @RequestMapping(value = "/customers/actions/search", method = RequestMethod.POST)
-    public CustomerVo search(@ApiParam("查询客户实体") @RequestBody CustomerSearchVo customerSearchVo) {
+    public Page.PageResult<CustomerVo> search(@ApiParam("查询客户实体") @RequestBody CustomerSearchVo customerSearchVo) {
         return null;
     }
 

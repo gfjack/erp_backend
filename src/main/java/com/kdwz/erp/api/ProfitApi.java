@@ -1,6 +1,8 @@
 package com.kdwz.erp.api;
 
 import com.kdwz.erp.config.Page;
+import com.kdwz.erp.entity.profit.ProfitResultsVo;
+import com.kdwz.erp.entity.profit.ProfitSearchVo;
 import com.kdwz.erp.entity.profit.ProfitVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -18,8 +20,12 @@ public interface ProfitApi {
 
     @ApiOperation("分页查询利润数据")
     @RequestMapping(value = "/profits/actions/query", method = RequestMethod.POST)
-    Page.PageResult<ProfitVo> query(@ApiParam("offset") @RequestParam("offset") Integer offset,
-                                    @ApiParam("limit") @RequestParam("limit") Integer limit);
+    ProfitResultsVo query(@ApiParam("offset") @RequestParam("offset") Integer offset,
+                          @ApiParam("limit") @RequestParam("limit") Integer limit);
+
+    @ApiOperation("条件查询利润数据 模糊查询")
+    @RequestMapping(value = "/profits/actions/search", method = RequestMethod.POST)
+    ProfitResultsVo search(@ApiParam("利润搜索实体") @RequestBody ProfitSearchVo profitSearchVo);
 
     @ApiOperation("导出利润数据")
     @RequestMapping(value = "/profits/actions/export", method = RequestMethod.POST)

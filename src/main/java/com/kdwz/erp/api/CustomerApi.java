@@ -29,7 +29,7 @@ public interface CustomerApi {
 
     @ApiOperation("根据条件查询某一个客户")
     @RequestMapping(value = "/customers/actions/search", method = RequestMethod.POST)
-    CustomerVo search(@ApiParam("查询客户实体") @RequestBody CustomerSearchVo customerSearchVo);
+    Page.PageResult<CustomerVo> search(@ApiParam("查询客户实体") @RequestBody CustomerSearchVo customerSearchVo);
 
     @ApiOperation("根据id查询某一客户")
     @RequestMapping(value = "/customers/{customer_id}", method = RequestMethod.GET)

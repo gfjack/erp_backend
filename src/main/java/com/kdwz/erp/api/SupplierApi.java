@@ -25,7 +25,7 @@ public interface SupplierApi {
 
     @ApiOperation("根据条件搜索供应商")
     @RequestMapping(value = "/suppliers/actions/search", method = RequestMethod.POST)
-    SupplierVo search(@ApiParam("查询供应商实体") @RequestBody SupplierSearchVo supplierSearchVo);
+    Page.PageResult<SupplierVo> search(@ApiParam("查询供应商实体") @RequestBody SupplierSearchVo supplierSearchVo);
 
     @ApiOperation("根据id查询某一供应商")
     @RequestMapping(value = "/suppliers/{supplier_id}", method = RequestMethod.GET)

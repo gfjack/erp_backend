@@ -2,9 +2,11 @@ package com.kdwz.erp.constant;
 
 public class Constant {
 
-    public static final String TOKEN_START = "Bearer ";
+    public static final String TOKEN_START = "token_";
 
     public static final String AUTHORIZATION = "Authorization";
+
+    public static String TITLE = "KDWZ";
 
     /**
      * 1小时
@@ -22,7 +24,5 @@ public class Constant {
     /**
      * 可以无权访问的接口, 登陆验证接口
      */
-    public static String ALLOWED_PATH = "/authenticate";
-
-    public static String TITLE = "KDWZ";
+    public static String ALLOWED_PATH = "/v2/authenticate";
 }

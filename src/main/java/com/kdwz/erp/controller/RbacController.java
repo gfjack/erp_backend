@@ -20,6 +20,7 @@ import java.util.List;
 
 @Api("权限登陆控制接口")
 @RestController
+@RequestMapping("/v2")
 public class RbacController implements RbacApi {
 
     @Resource
@@ -77,7 +78,7 @@ public class RbacController implements RbacApi {
 
     }
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String hello() {
         return SecurityContextHolder.getContext().getAuthentication().getName();
     }
