@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Api("订单细节api")
+@Api(tags = "订单细节api")
 @RequestMapping("/v2")
 public interface OrderDetailsApi {
 

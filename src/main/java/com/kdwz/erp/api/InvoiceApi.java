@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Api("发票api")
+@Api(tags = "发票api")
 @RequestMapping("/v2")
 public interface InvoiceApi {
 

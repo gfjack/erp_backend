@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@Api("仓库api")
+@Api(tags = "仓库api")
 @RequestMapping("/v2")
 public interface WareHouseApi {
 

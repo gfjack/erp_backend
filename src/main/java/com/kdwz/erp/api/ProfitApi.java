@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@Api("利润api")
+@Api(tags = "利润api")
 @RequestMapping("/v2")
 public interface ProfitApi {
 

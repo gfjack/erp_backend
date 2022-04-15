@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * 客户api
  */
-@Api("客户api")
+@Api(tags = "客户api")
 @RequestMapping(value = "/v2")
 public interface CustomerApi {
 

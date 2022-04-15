@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
 
-@Api("供应商接口")
+@Api(tags = "供应商接口")
 @RequestMapping("/v2")
 public interface SupplierApi {
 

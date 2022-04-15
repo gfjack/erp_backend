@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
 
-@Api("客户api")
+@Api(tags = "客户api")
 @RestController
 @RequestMapping("/v2")
 public class CustomerController implements CustomerApi {

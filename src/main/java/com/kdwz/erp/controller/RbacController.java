@@ -18,7 +18,7 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
 
-@Api("权限登陆控制接口")
+@Api(tags = "权限登陆控制接口")
 @RestController
 @RequestMapping("/v2")
 public class RbacController implements RbacApi {
@@ -76,11 +76,6 @@ public class RbacController implements RbacApi {
     public void export(@ApiParam("是否需要全部导出") @RequestParam("is_all") Boolean isAll,
                 @ApiParam("需要导出的用户名称") @RequestParam("user_names") List<String> userNames) {
 
-    }
-
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String hello() {
-        return SecurityContextHolder.getContext().getAuthentication().getName();
     }
 
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@Api("订单api")
+@Api(tags = "订单api")
 @RequestMapping("/v2")
 public interface OrderApi {
 

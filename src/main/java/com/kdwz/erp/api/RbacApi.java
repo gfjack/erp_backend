@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@Api("用户登陆接口")
+@Api(tags = "用户登陆接口")
 @RequestMapping("/v2")
 public interface RbacApi {
 
